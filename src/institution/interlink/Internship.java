@@ -2,17 +2,25 @@ package institution.interlink;
 
 import person.Student;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Internship {
+    private String name;
+    private List<Student> students = new LinkedList<>();
+
     public Internship(String name) {
-        //TODO: Implementation is needed
+        this.name = name;
     }
 
     public void setStudent(Student student) {
-        //TODO: Implementation is needed
+        if (student.getUniversity() != null && student.getLevel() > student.getUniversity().getAverageLevel()) {
+            this.students.add(student);
+        }
     }
 
     public String getStudents() {
-        //TODO: Implementation is needed
-        return "Andrew Maslenko\nJulia Veselkina\n";
+        return students.stream().map(Student::getName).collect(Collectors.joining("\n"));
     }
 }
