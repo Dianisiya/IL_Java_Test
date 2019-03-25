@@ -8,7 +8,7 @@ public class Knowledge {
         this.level = level < 0 ? 0 : level;
     }
 
-    public boolean isHigherThat (double requiredLevel) {
-        return Double.compare(this.level, requiredLevel) > 0;
+    public int getLevel() {
+        return level;
     }
 }
